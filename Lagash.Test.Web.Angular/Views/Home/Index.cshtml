@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div id="content" ng-controller="homeController">
+    <span ng-show="isViewLoading" class="viewLoading">
+        <img src="~/Content/images/ng-loader.gif" /> loading...
+    </span>
+    <div ng-class="result">{{message}}</div>
+    <hr />
+    <form ng-submit="submitForm()" name="frmCustomer">
+        <div>
+            <label for="email">Nombre</label>
+            <input type="text" ng-model="client.Name" name="cname" placeholder="Enter your name" required ng-minlength="4" ng-maxlength="14" />                   
+        </div>
+        <div>
+            <label for="email">Surname</label>
+            <input type="text" ng-model="client.SurName" name="email" placeholder="Enter your SurName" required />          
+        </div>       
+        <div>
+            <input type="submit" value="Submit" ng-disabled="myForm.$invalid">
+        </div>
+    </form>
+</div>
+
+@section JavaScript{
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/app/controller/homeController.js"></script>
+    <script src="~/Scripts/app/services/clientServices.js"></script>
+}
+<style>
+    #content label {
+        width: 150px;
+    }
+
+    #content input[type=submit] {
+        margin-left: 154px;
+        width: 120px;
+        padding: 5px 15px;
+        background: #ff6a00;
+        border: 0 none;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .color-default {
+        color: #000;
+    }
+
+    .color-red {
+        color: red;
+    }
+
+    .color-green {
+        color: green;
+    }
+
+    #content input.ng-dirty.ng-invalid {
+        border: 1px solid red;
+        background-color: rgb(255, 244, 244);
+    }
+</style>
