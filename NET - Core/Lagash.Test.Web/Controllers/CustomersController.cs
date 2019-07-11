@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using Lagash.Test.Application;
+﻿using Lagash.Test.Application;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lagash.Test.Web.Controllers
 {
-    [Route("api/[controller]")]
+  [Route("api/[controller]")]
     public class CustomersController : Controller
     {        
         public CustomersController(ICustomerUseCase customerUseCase)
